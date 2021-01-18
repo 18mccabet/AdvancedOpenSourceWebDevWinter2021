@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read-todo</title>
+</head>
+<body>
+    <div id="myData"></div> 
+
+
+
+    <script>
+        fetch('http://localhost:3000/todo')
+            .then(function (response) {
+                // The JSON data will arrive here
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                // If an error occured, you will catch it here
+                console.log('JSON NOT FOUND')
+            });
+        function appendData(data){
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = '--------------------------------------------------------------------------------------------<br>"userId": ' + (String)(data[i].userId) + '<br>"id": ' + (String)(data[i].id)+ '<br>"title": "' + (String)(data[i].title)+ '"<br>"completed": ' + (String)(data[i].completed) + '<br>' ;
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>
