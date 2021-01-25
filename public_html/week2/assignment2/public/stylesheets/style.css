@@ -1,0 +1,62 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+nav {
+  background-color: rgb(255, 217, 0);
+  overflow: hidden;
+  width: 1220px;
+}
+
+a {
+  float: left;
+  display: block;
+  color: red;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+a:hover {
+  border-bottom: 3px solid red;
+}
+
+a.active {
+  border-bottom: 3px solid red;
+}
+
+.sButton {
+  margin: 20px;
+}
+
+img {
+  margin: 10px;
+  width: 400px;
+}
+
+.wrapper{
+  padding: 10px;
+  background-color: coral;
+  width: 1200px;
+  display: inline-block;
+}
+
+.imgDiv {
+  float: left;
+}
+
+.paradiv {
+  overflow: hidden;
+}
+
+#resultDiv {
+  background-color: lightgoldenrodyellow;
+  width: 800px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 15px;
+  margin-bottom: 30px;
+}

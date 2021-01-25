@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <h1>Enter your information please!</h1>
+    <form action="/results" method="GET" name="infoForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="comments">Comments:</label>
+        <textarea name="comments" id="comments" cols="50" rows="4"></textarea>
+        <br>
+        <input type="submit" value="Submit" class="sButton" onclick="check(); return false">
+    </form>
+    <br>
+    <div id='resultDiv'>
+        <p id='resultName'></p>
+        <p id='resultEmail'></p>
+        <p id='resultComments'></p>
+    </div>
+    
+</div>
+
+<script>
+    function check(){
+        document.getElementById('resultName').innerHTML = "Welcome to MI6, Agent " + document.infoForm.name.value;
+        document.getElementById('resultEmail').innerHTML = "Email: " + document.infoForm.email.value;
+        document.getElementById('resultComments').innerHTML = "Comments: " + document.infoForm.comments.value;
+    }
+</script>
