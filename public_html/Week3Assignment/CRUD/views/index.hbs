@@ -1,0 +1,19 @@
+<h3>Welcome to {{company}} . . .</h3>
+<h1>Enter your information please!</h1>
+<form action="/saveEmplEntry" method="POST">
+    <span id="err" style="color: red;"></span>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName"><br><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName"><br><br>
+    <label for="department">Department:</label>
+    <select name="department" id="department"><option value="E204">E204</option><option value="E105">E105</option><option value="E311">E311</option></select><br><br>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate"><br><br>
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" name="jobTitle"><br><br>
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary" name="salary"><br><br>
+    <br>
+    <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,42 @@
+<div id="container">
+    <h2>Employees</h2>
+    <script>
+        fetch('/getData').then(function(employees){
+            employees.json().then(function(theemployees){
+                console.log(theemployees);
+                for(let employee of theemployees.employee){
+                    var element = document.createElement('p')
+                    element.innerHTML = "Name: " + employee.firstName + " " + employee.lastName + "<br>Department: " + employee.department + "<br>Start Date: " + employee.startDate + "<br>Salary: " + employee.salary + "<br>"
+                    document.getElementById('container').appendChild(element)
+
+                    //Delete Button
+                    var deleteBtn = document.createElement('button')
+                    deleteBtn.innerText = 'Delete Entry'
+                    deleteBtn.addEventListener('click', function deleteEmployee(){
+                        location.reload()
+                        fetch('/deleteEntry',{
+                            method:'POST',
+                            headers:{
+                                'Content-Type':'application/json'
+                            },
+                            body:JSON.stringify({
+                                _id:employee._id
+                            })
+                        })
+                        
+                    })
+                    element.appendChild(deleteBtn)
+
+                    //Update Button
+                    var updateBtn = document.createElement('button')
+                    updateBtn.innerText = 'Update Entry'
+                    updateBtn.addEventListener('click', function updtEmployee(){
+                        window.location.replace('/update')
+                        
+                    })
+                    element.appendChild(updateBtn)
+                }
+            })
+        })
+    </script>
+</div>

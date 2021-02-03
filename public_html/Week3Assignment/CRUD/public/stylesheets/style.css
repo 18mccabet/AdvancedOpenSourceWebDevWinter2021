@@ -1,0 +1,30 @@
+html,body{
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  padding-right: 10px;
+}
+
+.wrapper{
+  padding: 10px;
+  background-color: rgb(208, 255, 80);
+  width: 1200px;
+  display: inline-block;
+}
+h1{
+  color: rgb(134, 42, 255);
+}
+h2{
+  color:  rgb(134, 42, 255);
+}
+h3{
+  color:  rgb(134, 42, 255);
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Foods</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Here are your favorite foods!</h1>
+        <nav>
+            <a href="index.html">Enter Food</a>
+            <a href="#">See Favorite Food</a>
+        </nav>
+        <script>
+            fetch('/getData').then(function(foods){
+                foods.json().then(function(thefoods){
+                    console.log(thefoods)
+                    for(let food of thefoods.food){
+                        var element = document.createElement('p')
+                        element.innerHTML = food.food
+                        document.getElementById('container').appendChild(element)
+
+                        //add delete buttons to entry
+                        var deleteBtn = document.createElement('button')
+                        deleteBtn.innerText = "Delete Entry"
+                        deleteBtn.addEventListener('click', function deleteFood(){
+                            location.reload()
+                            fetch('/deleteFood', {
+                                method:'POST',
+                                headers:{
+                                    'Content-Type':'application/json'
+                                },
+                                body:JSON.stringify({
+                                    _id:food._id
+                                })
+                            })
+                        })
+                        element.appendChild(deleteBtn)
+                    }
+                })
+            })
+        </script>
+    </div>
+</body>
+</html>
