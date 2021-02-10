@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Demo</title>
+    <Style>
+        textarea {
+            width: 500px;
+            height: 100px;
+        }
+        textarea[name="results"]{
+            height: 300px;
+        }
+    </Style>
+</head>
+<body>
+    <h1>Rest API Demo</h1>
+
+    Verb/HTTP Method:
+    <br>
+    <select name="verb">
+        <option value="GET">GET</option>
+        <option value="POST">POST</option>
+        <option value="PUT">PUT</option>
+        <option value="DELETE">DELETE</option>
+    </select>
+    <br>
+    <br>
+    Resource Query:
+    <br>
+    <input name="resource" value="reviews/">
+    <br>
+    <br>
+
+    Data (optional):
+    <br>
+    Author <input type="text" name="author" value="">
+    <br>
+    Rating <input type="text" name="rating" placeholder="5" list="ratings">
+    <br>
+    Rating <input type="text" name="reviewText">
+    <br>
+    <br>
+    
+    <button>Make Request</button>
+
+    <h3>Results</h3>
+    <input type="query" readonly size="70">
+    <br>
+    <textarea name="results" readonly></textarea>
+
+    <datalist id="ratings">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>
+        <option value="4"></option>
+        <option value="5"></option>
+    </datalist>
+</body>
+</html>

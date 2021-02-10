@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+
+<form action="/colors" method="POST">
+  <label>Choose a Number:</label>
+  <select id="numForm" name="numForm">
+    <script>
+      var numbers = [3,4,5,10,20]
+      for(var i = 0; i < numbers.length; i++){
+        document.write("<option value='" + numbers[i] + "'>" + numbers[i] + "</option>")
+      }
+    </script>
+  </select>
+  <input type="submit">
+</form>
+</body>
+</html>
