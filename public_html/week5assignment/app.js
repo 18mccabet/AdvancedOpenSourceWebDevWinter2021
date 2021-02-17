@@ -20,8 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-//Enable Cross-origin Resource Sharing
+// enable Cross-Origin Resource Sharing
 app.use(function(reg,res,next){
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept')
@@ -32,6 +31,7 @@ app.use(function(reg,res,next){
 app.use('/api/v1', index);
 app.use('/users', users);
 
+//Sends json so that it looks good
 app.set('json spaces', 2)
 
 // catch 404 and forward to error handler

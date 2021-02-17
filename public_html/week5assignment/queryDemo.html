@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Query Demo</title>
-    <Style>
-        textarea {
-            width: 500px;
-            height: 100px;
+    <style>
+        textarea{
+            width:500px;
+            height:100px;
         }
         textarea[name="results"]{
             height: 300px;
         }
-    </Style>
+
+    </style>
 </head>
 <body>
     <h1>Rest API Demo</h1>
@@ -30,47 +30,49 @@
     <br>
     Resource Query:
     <br>
-    <input name="resource" value="reviews/">
+    <input name='resource' value="employees/">
     <br>
     <br>
 
     Data (optional):
     <br>
-    Author <input type="text" name="author" value="">
+    First Name <input type="text" name="firstName" value="">
     <br>
-    Rating <input type="text" name="rating" placeholder="5" list="ratings">
+    Last Name <input type="text" name="lastName" value="">
     <br>
-    Rating <input type="text" name="reviewText">
+    Department <input type="text" name="department" value="">
+    <br>
+    Start Date <input type="datetime-local" name="startDate" value="">
+    <br>
+    Job Title <input type="text" name="jobTitle" value="">
+    <br>
+    Salary <input type="number" name="salary" value="">
     <br>
     <br>
-    
-    <button>Make Request</button>
 
+    <button>Make Request</button>
+    
     <h3>Results</h3>
-    <input type="query" readonly size="70">
+    <input name="query" readonly size="70">
     <br>
     <textarea name="results" readonly></textarea>
 
-    <datalist id="ratings">
-        <option value="1"></option>
-        <option value="2"></option>
-        <option value="3"></option>
-        <option value="4"></option>
-        <option value="5"></option>
-    </datalist>
 
     <script>
         //event listener for button
         var callBtn = document.querySelector('button')
-        callBtn.addEventListener('click', makeCall)
+        callBtn.addEventListener('click',makeCall)
 
         function makeCall(){
             let data = {
-                'author':document.querySelector('input[name="author"]').value,
-                'rating':document.querySelector('input[name="rating"]').value,
-                'reviewText':document.querySelector('input[name="reviewText"]').value,
+                'firstName':document.querySelector('input[name="firstName"]').value,
+                'lastName':document.querySelector('input[name="lastName"]').value,
+                'department':document.querySelector('input[name="department"]').value,
+                'startDate':document.querySelector('input[name="startDate"]').value,
+                'jobTitle':document.querySelector('input[name="jobTitle"]').value,
+                'salary':document.querySelector('input[name="salary"]').value,
             }
-
+            
             let verbfield = document.querySelector('select[name="verb"]')
             let verb = verbfield.options[verbfield.selectedIndex].value
             let resource = document.querySelector('input[name="resource"]').value
@@ -86,7 +88,7 @@
                 method:verb,
                 headers:myHeaders,
                 mode:'cors',
-                cache:'default'
+                cache:"default"
             }
 
             if(['POST','PUT'].indexOf(verb)>-1){
@@ -110,9 +112,7 @@
             }).catch(function(err){
                 console.log(err)
             })
-
         }
-
     </script>
 </body>
 </html>

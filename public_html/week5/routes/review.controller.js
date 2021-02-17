@@ -7,10 +7,22 @@ function sendJSONresponse(res, status, content){
 }
 
 module.exports.reviewsReadAll = function(req,res){
-    if(req.params && req.params.reviewid){
-    debug('Getting sing review with id =', req.params.reviewid)
+    debug('Getting all reviews')
 
-    Review.findBy(req.params.reviewid).exec().then(function(results){
+    Review.find().exec().then(function(results){
+        sendJSONresponse(res,200,results)
+    })
+    .catch(function(err){
+        sendJSONresponse(res,404,err)
+    })
+}
+
+module.exports.reviewsReadOne = function(req,res){
+
+    if(req.params && req.params.reviewid){
+    debug('Getting single review with id =', req.params.reviewid)
+
+    Review.findById(req.params.reviewid).exec().then(function(results){
         sendJSONresponse(res,200,results)
     })
     .catch(function(err){
@@ -25,6 +37,8 @@ module.exports.reviewsReadAll = function(req,res){
         })
     }
 }
+
+//post routes /api/v1/reviews
 
 module.exports.reviewsCreate = function(res,req){
     debug("Creating a review", req.body)
